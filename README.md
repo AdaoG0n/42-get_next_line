@@ -15,33 +15,46 @@
 <br/>Lida com diferentes tamanhos de buffer
 
 ### Implementação
-<br/>A função utiliza alocação dinâmica de memória e variáveis estáticas para manter o estado entre chamadas. 
-<br/>Ela lê o arquivo em chunks definidos por BUFFER_SIZE, processa o conteúdo e retorna uma linha completa.
-<br/>Como Usar
-```bash
-#include "get_next_line.h"
 
-int main()
-{
-    int fd = open("arquivo.txt", O_RDONLY);
-    char *linha;
-    
-    while ((linha = get_next_line(fd)) != NULL)
-    {
-        printf("%s", linha);
-        free(linha);
-    }
-    
-    close(fd);
-    return (0);
-}
-```
-
-### Compilação
-Compile o projeto usando:
+###### Função principal:
 
 ```sh
-gcc -Wall -Wextra -Werror -D BUFFER_SIZE=32 *.c
+char *get_next_line(int fd);
 ```
+
+######   Objetivo:
+
+- [ ] Ler uma linha de um descritor de arquivo (fd)
+- [ ] Retornar a linha lida, incluindo '\n'
+- [ ] Retornar NULL se não houver mais para ler ou ocorrer erro
+
+ ###### Arquivos necessários:
+
+ - [ ] get_next_line.c
+ - [ ] get_next_line_utils.c
+ - [ ] get_next_line.h
+
+###### Regras importantes:
+
+- [ ] Usar apenas uma variável estática
+- [ ] Compilar com flag -D BUFFER_SIZE=n
+- [ ] Funcionar com diferentes tamanhos de buffer
+- [ ] Ler o mínimo possível a cada chamada
+
+ ###### Dicas:
+
+- [ ] Entender variáveis estáticas
+- [ ] Gerenciar memória corretamente (malloc/free)
+- [ ] Lidar com leitura de arquivo e entrada padrão
+- [ ] Testar com diferentes BUFFER_SIZE
+
+ ###### Funções permitidas:
+
+`read`
+`malloc`
+`free`
+
+>[!TIP]
+>Lembra-te: código limpo, sem erros de memória, seguindo a Norma da 42.
 
 <br/>Este projeto demonstra habilidades em manipulação de arquivos, gerenciamento de memória e programação em C
