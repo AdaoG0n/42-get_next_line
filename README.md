@@ -1,4 +1,4 @@
-# <a href="#" style="pointer-events: none;"> <img src="https://img.shields.io/badge/status-In_Progress-success?color=black&style=flat-square"/></a> • 42 get_next_line <a href="https://github.com/AdaoG0n" style="pointer-events: none;"> <img src="https://github.com/AdaoG0n/AdaoG0n/blob/main/assests/Followbutton.png" width="130" align="right"/></a>
+# <a href="#" style="pointer-events: none;"> <img src="https://img.shields.io/badge/status-0%20%2F%20100%20%E2%98%85-success?color=%2312bab9&style=flat-square"/> <img src="https://img.shields.io/github/last-commit/AdaoG0n/42-get_next_line?style=flat-square&color=%2312bab9" /> </a> • 42 get_next_line <a href="https://github.com/AdaoG0n" style="pointer-events: none;"> <img src="https://github.com/AdaoG0n/AdaoG0n/blob/main/assests/Followbutton.png" width="130" align="right"/></a>
  <a href="#" style="pointer-events: none;">
  <img align="right" src="https://github.com/AdaoG0n/AdaoG0n/blob/main/assests/getnextline.png" width="400"/>
  </a>
