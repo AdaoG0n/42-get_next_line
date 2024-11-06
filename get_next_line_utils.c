@@ -6,7 +6,7 @@
 /*   By: adamarqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 14:12:56 by adamarqu          #+#    #+#             */
-/*   Updated: 2024/11/06 11:26:30 by adamarqu         ###   ########.fr       */
+/*   Updated: 2024/11/06 15:03:56 by adamarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	copy_str(t_list *list, char *str)
 	}
 	str[k] = '\0';
 }
+
 int	len_to_newline(t_list *list)
 {
 	int	i;
@@ -88,15 +89,14 @@ int	len_to_newline(t_list *list)
 			++len;
 		}
 		list = list->next;
-	}	
+	}
 	return (len);
 }
-void	dealloc(t_list **list, t_list *clean_node, char *buf)
+
+void	dealloc(t_list **list, char *buf)
 {
 	t_list	*tmp;
 
-	if (NULL == *list)
-		return ;
 	while (*list)
 	{
 		tmp = (*list)->next;
@@ -104,12 +104,15 @@ void	dealloc(t_list **list, t_list *clean_node, char *buf)
 		free(*list);
 		*list = tmp;
 	}
-	*list = NULL;
-	if (clean_node->str_buf[0])
-		*list = clean_node;
-	else
+	if (buf && *buf)
 	{
-		free(buf);
-		free(clean_node);
+		*list = malloc(sizeof(t_list));
+		if (*list)
+		{
+			(*list)->str_buf = buf;
+			(*list)->next = NULL;
+		}
 	}
+	else
+		free(buf);
 }

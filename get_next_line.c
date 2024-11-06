@@ -6,37 +6,37 @@
 /*   By: adamarqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 14:12:43 by adamarqu          #+#    #+#             */
-/*   Updated: 2024/11/06 12:25:53 by adamarqu         ###   ########.fr       */
+/*   Updated: 2024/11/06 15:00:46 by adamarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
 
-void	polish_list(t_list **list)
+static void	polish_list(t_list **list)
 {
 	t_list	*last_node;
-	t_list	*clean_node;
+	char	*buf;
 	int		i;
 	int		k;
-	char	*buf;
 
-	buf = malloc(BUFFER_SIZE + 1);
-	clean_node = malloc(sizeof(t_list));
-	if (NULL == buf || NULL == clean_node)
+	if (!*list)
 		return ;
 	last_node = find_last_node(*list);
+	buf = malloc(BUFFER_SIZE + 1);
+	if (!buf)
+		return ;
 	i = 0;
-	k = 0;
 	while (last_node->str_buf[i] && last_node->str_buf[i] != '\n')
-		++i;
-	while (last_node->str_buf[i] && last_node->str_buf[++i])
-		buf[k++] = last_node->str_buf[i];
+		i++;
+	if (last_node->str_buf[i] == '\n')
+		i++;
+	k = 0;
+	while (last_node->str_buf[i])
+		buf[k++] = last_node->str_buf[i++];
 	buf[k] = '\0';
-	clean_node->str_buf = buf;
-	clean_node->next = NULL;
-	dealloc(list, clean_node, buf);
+	dealloc(list, buf);
 }
 
-char	*get_line(t_list *list)
+static char	*get_line(t_list *list)
 {
 	int		str_len;
 	char	*next_str;
@@ -51,7 +51,7 @@ char	*get_line(t_list *list)
 	return (next_str);
 }
 
-void	append(t_list **list, char *buf)
+static void	append(t_list **list, char *buf)
 {
 	t_list	*new_node;
 	t_list	*last_node;
@@ -68,18 +68,18 @@ void	append(t_list **list, char *buf)
 	new_node->next = NULL;
 }
 
-void	create_list(t_list **list, int fd)
+static void	create_list(t_list **list, int fd)
 {
-	int		char_read;	
+	int		char_read;
 	char	*buf;
 
 	while (!found_newline(*list))
 	{
 		buf = malloc(BUFFER_SIZE + 1);
-		if (NULL == buf)
+		if (!buf)
 			return ;
 		char_read = read(fd, buf, BUFFER_SIZE);
-		if (!char_read)
+		if (char_read <= 0)
 		{
 			free(buf);
 			return ;
@@ -95,9 +95,12 @@ char	*get_next_line(int fd)
 	char			*next_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &next_line, 0) < 0)
+	{
+		dealloc(&list, NULL);
 		return (NULL);
+	}
 	create_list(&list, fd);
-	if (list == NULL)
+	if (!list)
 		return (NULL);
 	next_line = get_line(list);
 	polish_list(&list);
