@@ -58,3 +58,10 @@ char *get_next_line(int fd);
 >Lembra-te: código limpo, sem erros de memória, seguindo a Norma da 42.
 
 <br/>Este projeto demonstra habilidades em manipulação de arquivos, gerenciamento de memória e programação em C
+
+<details>
+<summary> ⚠️ Resultado dos testes ⚠️</summary>
+
+![](https://github.com/AdaoG0n/42-get_next_line/blob/main/getnextline.png)
+ 
+</details>
