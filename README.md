@@ -65,3 +65,5 @@ char *get_next_line(int fd);
 ![](https://github.com/AdaoG0n/42-get_next_line/blob/main/getnextline.png)
  
 </details>
+
+![](https://github.com/AdaoG0n/AdaoG0n/blob/main/assests/animated%20gifs/madeby.gif)
