@@ -4,7 +4,7 @@
 
  ![](https://github.com/AdaoG0n/AdaoG0n/blob/main/assests/animated%20gifs/getnextline.gif)
  <p align="center">
- <a href="#fluxo-gnl">Fluxo/estrutura GNL</a>  •  <a href="#testers">Testers</a>  •  <a href="#usefull-links">Usefull Links</a> 
+ <a href="#fluxo-gnl">Fluxo/estrutura GNL</a>  •  <a href="#testers">Testers</a>  •  <a href="#useful-links">Useful Links</a> 
 </p>
 
 #
@@ -168,7 +168,7 @@ get_next_line(fd)
 
 ![](https://github.com/AdaoG0n/AdaoG0n/blob/main/assests/bar.png)
 
-### Usefull links
+### Useful links
 
 | Resource                                                                              | Source    |
 | :-------------------------------------------------------------------------------------| :-------- |
