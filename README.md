@@ -6,7 +6,6 @@
  <p align="center">
   <a href="#testers">Testers</a>  •  <a href="#usefull-links">Usefull Links</a> 
 </p>
-</br>
 
 #
 <br/>**get_next_line** é uma função em C que lê uma linha de um arquivo ou entrada padrão. 
