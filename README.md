@@ -4,7 +4,7 @@
 
  ![](https://github.com/AdaoG0n/AdaoG0n/blob/main/assests/animated%20gifs/getnextline.gif)
  <p align="center">
- <a href="#fluxo-gnl">Flow/structure GNL</a>  •  <a href="#testers">Testers</a>  •  <a href="#usefull-links">Useful Links</a> 
+ <a href="#gnl-structure">Flow/structure GNL</a>  •  <a href="#testers">Testers</a>  •  <a href="#useful-links">Useful Links</a> 
 </p>
 
 #
@@ -22,8 +22,9 @@
 
 ###### Main function:
 
-sh
+```sh
 char *get_next_line(int fd);
+```
 
 ###### Objective:
 
@@ -53,9 +54,9 @@ char *get_next_line(int fd);
 
 ###### Allowed functions:
 
-read
-malloc
-free
+`read` 
+`malloc`
+`free`
 
 >[!TIP]
 >Remember: clean code, no memory errors, following the 42 Norm.
@@ -65,65 +66,65 @@ free
 
 ### GNL Flow
 
-#### 1. Initial call: get_next_line(int fd)
-- **Input**: fd (file descriptor).
-- **Static variable**: temp (holds remaining content between calls).
+#### 1. Initial call: `get_next_line(int fd)`
+- **Input**: `fd` (file descriptor).
+- **Static variable**: `temp` (holds remaining content between calls).
 - Calls functions:
-  - ft_read(fd, temp) to read the file.
-  - ft_strlen(temp) to check the length of the remaining string.
-  - ft_strchr(temp, '\n') to locate the next newline.
-  - ft_strndup to duplicate the line up to \n.
-  - ft_clean(temp) to clear the already processed part.
-  - ft_free to free temporary memory.
+  - `ft_read(fd, temp)` to read the file.
+  - `ft_strlen(temp)` to check the length of the remaining string.
+  - `ft_strchr(temp, '\n')` to locate the next newline.
+  - `ft_strndup` to duplicate the line up to `\n`.
+  - `ft_clean(temp)` to clear the already processed part.
+  - `ft_free` to free temporary memory.
 
-#### 2. ft_read(int fd, char *temp)
-- **Input**: fd, temp (accumulated string).
+#### 2. `ft_read(int fd, char *temp)`
+- **Input**: `fd`, `temp` (accumulated string).
 - Performs incremental file reading using a buffer:
-  - ft_calloc to create a temporary buffer.
-  - read(fd, temp_buff, BUFFER_SIZE) to read from the file.
-  - ft_strjoin(temp, temp_buff) to accumulate the read content.
-  - ft_strchr(temp, '\n') to check if a newline has been found.
-- Frees memory of temp_buff after use.
-- Returns the accumulated string in temp.
+  - `ft_calloc` to create a temporary buffer.
+  - `read(fd, temp_buff, BUFFER_SIZE)` to read from the file.
+  - `ft_strjoin(temp, temp_buff)` to accumulate the read content.
+  - `ft_strchr(temp, '\n')` to check if a newline has been found.
+- Frees memory of `temp_buff` after use.
+- Returns the accumulated string in `temp`.
 
-#### 3. ft_clean(char *temp)
-- **Input**: temp (remaining content).
-- Processes temp to remove the part that has already been returned:
+#### 3. `ft_clean(char *temp)`
+- **Input**: `temp` (remaining content).
+- Processes `temp` to remove the part that has already been returned:
   - Loops until the next newline is found.
-  - ft_strdup to copy the remaining part of temp after \n.
-  - ft_strlen(str) to check if the remaining string is empty.
-  - Frees temp with ft_free.
-- Returns the new content of temp.
+  - `ft_strdup` to copy the remaining part of temp after `\n`.
+  - `ft_strlen(str)` to check if the remaining string is empty.
+  - Frees `temp` with `ft_free`.
+- Returns the new content of `temp`.
 
 #### 4. Main helper functions
 
-- **ft_strchr(const char *str, int c)**
-  - Searches for the position of c in str.
-  - Returns the index or -1 if not found.
+- `**ft_strchr(const char *str, int c)**`
+  - Searches for the position of `c` in `str`.
+  - Returns the `index` or `-1` if not found.
   
-- **ft_strlen(const char *str)**
+- `**ft_strlen(const char *str)**`
   - Returns the length of the string.
   
-- **ft_strjoin(char *s1, char *s2)**
+- `**ft_strjoin(char *s1, char *s2)**`
   - Joins two strings, allocates space, and returns the new string.
-  - Uses ft_calloc and frees s1 with ft_free.
+  - Uses `ft_calloc` and frees `s1` with `ft_free`.
   
-- **ft_strdup(char *src)**
-  - Creates a copy of src.
+- `**ft_strdup(char *src)**`
+  - Creates a copy of `src`.
   
-- **ft_strndup(const char *s, int length)**
-  - Duplicates the first length characters of s.
+- `**ft_strndup(const char *s, int length)**`
+  - Duplicates the first `length` characters of `s`.
   
-- **ft_calloc(size_t count, size_t size)**
+- `**ft_calloc(size_t count, size_t size)**`
   - Allocates and initializes memory for an array.
   
-- **ft_free(char **temp)**
-  - Frees memory and sets the pointer to NULL.
+- `**ft_free(char **temp)**`
+  - Frees memory and sets the pointer to `NULL`.
 
 
 #### GNL Structure
 
-bash
+```bash
 get_next_line(fd)
 │
 ├── ft_read(fd, temp)
@@ -146,13 +147,12 @@ get_next_line(fd)
 │   └── ft_free(temp)
 │
 └── ft_free(temp2)
-
-
-
+```
 
 ![](https://github.com/AdaoG0n/AdaoG0n/blob/main/assests/bar.png)
 
 ### Testers
+
 | Testers                                                           | Author           |
 | :---------------------------------------------------------------- | :---            |
 | [francinette](https://github.com/xicodomingues/francinette)       | xicodomingues |
