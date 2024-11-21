@@ -65,9 +65,8 @@ char *get_next_line(int fd);
 ![](https://github.com/AdaoG0n/AdaoG0n/blob/main/assests/bar.png)
 
 ### Fluxo GNL
-# Estrutura do `get_next_line`
 
-## 1. Chamada inicial: `get_next_line(int fd)`
+#### 1. Chamada inicial: `get_next_line(int fd)`
 - **Entrada**: `fd` (descritor de arquivo).
 - **Variável estática**: `temp` (guarda conteúdo restante entre chamadas).
 - Chama as funções:
@@ -78,7 +77,7 @@ char *get_next_line(int fd);
   - `ft_clean(temp)` para limpar a parte já processada.
   - `ft_free` para liberar memória temporária.
 
-## 2. `ft_read(int fd, char *temp)`
+#### 2. `ft_read(int fd, char *temp)`
 - **Entrada**: `fd`, `temp` (string acumulada).
 - Faz leitura incremental do arquivo usando um buffer:
   - `ft_calloc` para criar o buffer temporário.
@@ -88,7 +87,7 @@ char *get_next_line(int fd);
 - Libera memória de `temp_buff` após o uso.
 - Retorna a string acumulada em `temp`.
 
-## 3. `ft_clean(char *temp)`
+#### 3. `ft_clean(char *temp)`
 - **Entrada**: `temp` (conteúdo restante).
 - Processa `temp` para remover a parte já retornada:
   - Percorre até a próxima quebra de linha com um loop.
@@ -97,7 +96,7 @@ char *get_next_line(int fd);
   - Libera `temp` com `ft_free`.
 - Retorna o novo conteúdo de `temp`.
 
-## 4. Funções auxiliares principais
+#### 4. Funções auxiliares principais
 
 - **`ft_strchr(const char *str, int c)`**
   - Procura a posição de `c` em `str`.
@@ -121,6 +120,35 @@ char *get_next_line(int fd);
   
 - **`ft_free(char **temp)`**
   - Libera memória e redefine o ponteiro como `NULL`.
+
+
+#### Estrutura GNL
+
+```bash
+get_next_line(fd)
+│
+├── ft_read(fd, temp)
+│   ├── ft_calloc(BUFFER_SIZE + 1)
+│   ├── read(fd, temp_buff, BUFFER_SIZE)
+│   ├── ft_strchr(temp, '\n')
+│   ├── ft_strjoin(temp, temp_buff)
+│   └── ft_free(temp_buff)
+│
+├── ft_strlen(temp)
+├── ft_strchr(temp, '\n')
+├── ft_strndup(temp, ft_strchr(temp, '\n') + 1)
+│   ├── malloc(length + 1)
+│   └── ft_free(temp)
+│
+├── ft_clean(temp)
+│   ├── ft_strdup(temp + i)
+│   │   ├── malloc(ft_strlen(temp + i) + 1)
+│   ├── ft_strlen(str)
+│   └── ft_free(temp)
+│
+└── ft_free(temp2)
+```
+
 
 ![](https://github.com/AdaoG0n/AdaoG0n/blob/main/assests/bar.png)
 
