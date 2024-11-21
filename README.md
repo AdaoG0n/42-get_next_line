@@ -12,8 +12,7 @@
 <br/>This project is part of the 42 curriculum and aims to improve programming and file manipulation skills.
 
 ### Features
-
-<br/>Reads a line of text from a file descriptor
+Reads a line of text from a file descriptor
 <br/>Supports multiple file descriptors
 <br/>Efficient memory management
 <br/>Handles different buffer sizes
