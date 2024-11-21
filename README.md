@@ -4,7 +4,7 @@
 
  ![](https://github.com/AdaoG0n/AdaoG0n/blob/main/assests/animated%20gifs/getnextline.gif)
  <p align="center">
- <a href="#gnl-structure">Flow/structure GNL</a>  •  <a href="#testers">Testers</a>  •  <a href="#useful-links">Useful Links</a> 
+ <a href="#gnl-structure">Flow/structure GNL</a>  •  <a href="#testers">Testers</a>  •  <a href="#useful-links">Useful Links</a>  •  <a href="https://github.com/AdaoG0n/42-get_next_line/blob/main/README_pt.md"> Portuguese 🇵🇹</a>
 </p>
 
 #
