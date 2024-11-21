@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adamarqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 10:19:37 by adamarqu          #+#    #+#             */
-/*   Updated: 2024/11/18 10:19:38 by adamarqu         ###   ########.fr       */
+/*   Created: 2024/11/19 12:49:31 by adamarqu          #+#    #+#             */
+/*   Updated: 2024/11/19 12:49:34 by adamarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_strjoin(char *s1, char *s2)
 {
@@ -88,7 +88,7 @@ char	*ft_strdup(char *src)
 	i = 0;
 	new = malloc(ft_strlen(src) + 1);
 	if (!new)
-		return (ft_free(&new), NULL);
+		return (NULL);
 	while (src[i] != '\0')
 	{
 		new[i] = src[i];

@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adamarqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 12:48:16 by adamarqu          #+#    #+#             */
-/*   Updated: 2024/11/19 12:48:22 by adamarqu         ###   ########.fr       */
+/*   Created: 2024/11/19 12:49:11 by adamarqu          #+#    #+#             */
+/*   Updated: 2024/11/19 12:49:16 by adamarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
+
+# define MAX_FD 1024
 
 # include <stdlib.h>
 # include <stdio.h>
@@ -31,7 +33,7 @@ char	*ft_read(int fd, char *temp);
 char	*ft_clean(char *temp);
 char	*ft_strdup(char *src);
 char	*ft_calloc(size_t count, size_t size);
-int		ft_strchr(const char *str, int c);
+int		ft_strchr(const char *s, int c);
 size_t	ft_strlen(const char *str);
 void	ft_free(char **temp);
 
