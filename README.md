@@ -63,6 +63,7 @@ char *get_next_line(int fd);
 >Lembra-te: código limpo, sem erros de memória, seguindo a Norma da 42.
 
 <br/>Este projeto demonstra habilidades em manipulação de arquivos, gerenciamento de memória e programação em C
+![](https://github.com/AdaoG0n/AdaoG0n/blob/main/assests/bar.png)
 
 ### Testers
 | Testers                                                           | Autor           |
@@ -78,6 +79,8 @@ char *get_next_line(int fd);
  
 </details>
 
+![](https://github.com/AdaoG0n/AdaoG0n/blob/main/assests/bar.png)
+
 ### Usefull links
 
 | Resource                                                                              | Source    |
@@ -92,5 +95,6 @@ char *get_next_line(int fd);
 | [get_next_line explained: develop a function that reads a file line by line](https://www.youtube.com/watch?v=8E9siq7apUU) | `Youtube` | `Oceano` |
 | [understanding get_next_line](https://www.youtube.com/watch?v=-Mt2FdJjVno)                                                | `Youtube` | `nikito` |
 
+![](https://github.com/AdaoG0n/AdaoG0n/blob/main/assests/bar.png)
 
 ![](https://github.com/AdaoG0n/AdaoG0n/blob/main/assests/animated%20gifs/madeby.gif)
