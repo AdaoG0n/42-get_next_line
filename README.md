@@ -4,7 +4,7 @@
 
  ![](https://github.com/AdaoG0n/AdaoG0n/blob/main/assests/animated%20gifs/getnextline.gif)
  <p align="center">
-  <a href="#testers">Testers</a>  •  <a href="#usefull-links">Usefull Links</a> 
+ <a href="#fluxo-gnl">Fluxo/estrutura GNL</a>  •  <a href="#testers">Testers</a>  •  <a href="#usefull-links">Usefull Links</a> 
 </p>
 
 #
@@ -62,6 +62,66 @@ char *get_next_line(int fd);
 >Lembra-te: código limpo, sem erros de memória, seguindo a Norma da 42.
 
 <br/>Este projeto demonstra habilidades em manipulação de arquivos, gerenciamento de memória e programação em C
+![](https://github.com/AdaoG0n/AdaoG0n/blob/main/assests/bar.png)
+
+### Fluxo GNL
+# Estrutura do `get_next_line`
+
+## 1. Chamada inicial: `get_next_line(int fd)`
+- **Entrada**: `fd` (descritor de arquivo).
+- **Variável estática**: `temp` (guarda conteúdo restante entre chamadas).
+- Chama as funções:
+  - `ft_read(fd, temp)` para ler o arquivo.
+  - `ft_strlen(temp)` para verificar o tamanho da string restante.
+  - `ft_strchr(temp, '\n')` para localizar a próxima quebra de linha.
+  - `ft_strndup` para duplicar a linha até `\n`.
+  - `ft_clean(temp)` para limpar a parte já processada.
+  - `ft_free` para liberar memória temporária.
+
+## 2. `ft_read(int fd, char *temp)`
+- **Entrada**: `fd`, `temp` (string acumulada).
+- Faz leitura incremental do arquivo usando um buffer:
+  - `ft_calloc` para criar o buffer temporário.
+  - `read(fd, temp_buff, BUFFER_SIZE)` para ler do arquivo.
+  - `ft_strjoin(temp, temp_buff)` para acumular conteúdo lido.
+  - `ft_strchr(temp, '\n')` para verificar se a quebra de linha foi encontrada.
+- Libera memória de `temp_buff` após o uso.
+- Retorna a string acumulada em `temp`.
+
+## 3. `ft_clean(char *temp)`
+- **Entrada**: `temp` (conteúdo restante).
+- Processa `temp` para remover a parte já retornada:
+  - Percorre até a próxima quebra de linha com um loop.
+  - `ft_strdup` para copiar a parte restante de `temp` após `\n`.
+  - `ft_strlen(str)` para verificar se a string restante é vazia.
+  - Libera `temp` com `ft_free`.
+- Retorna o novo conteúdo de `temp`.
+
+## 4. Funções auxiliares principais
+
+- **`ft_strchr(const char *str, int c)`**
+  - Procura a posição de `c` em `str`.
+  - Retorna o índice ou `-1` se não encontrado.
+  
+- **`ft_strlen(const char *str)`**
+  - Retorna o comprimento da string.
+  
+- **`ft_strjoin(char *s1, char *s2)`**
+  - Junta duas strings, aloca espaço e retorna a nova string.
+  - Usa `ft_calloc` e libera `s1` com `ft_free`.
+  
+- **`ft_strdup(char *src)`**
+  - Cria uma cópia de `src`.
+  
+- **`ft_strndup(const char *s, int length)`**
+  - Duplica os primeiros `length` caracteres de `s`.
+  
+- **`ft_calloc(size_t count, size_t size)`**
+  - Aloca e inicializa memória para um array.
+  
+- **`ft_free(char **temp)`**
+  - Libera memória e redefine o ponteiro como `NULL`.
+
 ![](https://github.com/AdaoG0n/AdaoG0n/blob/main/assests/bar.png)
 
 ### Testers
